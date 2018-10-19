@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>移动卡片测试</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/测试.css">
+</head>
+<body>
+	<!-- <div class="guestbook-section">
+		<div class="guestbook-item">
+			<h5>小兔兔说：</h5>
+			<p>耿昌宇老师，我是7月5日购买课程的学员，还有一个视频就全部学完了。你的课程简单易学非常感谢，恰逢新年来临送上我的祝福！</p>
+		</div>
+	</div> -->
+ <div style="height: 400px;"></div>
+
+ <div class="card-list-contaienr">
+    <div class="card-item">0</div>
+ </div>
+
+<div style="height: 400px;"></div>
+<script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		arr = [{name:"1"},{name:"2"},{name:"3"},{name:"4"},{name:"5"},];
+		let tmp = {
+			data:{
+				isLock:true,
+				zindex:0,
+				item:null,
+				itemDiffOffsetX:null,
+				itemDiffOffsetY:null,
+			},
+			init:function(){
+				this.bind();
+				this.setCard();
+			},    
+			setCard:function(){//插入卡片
+				let background = ['#b8d8ba','#d9dbbc','#fcddbc','#ef959d','#69585f'];
+				let containerWidth   = $('.card-list-contaienr').width();
+				let containerHeight  = $('.card-list-contaienr').height();
+				let itemWidth        = 100;
+				let itemHeight       = 100;
+				let paddingOffset    = 50;			
+        let maxWidth         = containerWidth - itemWidth - paddingOffset;//800-100-50=650
+        let maxHeight        = containerHeight - itemHeight - paddingOffset;//400-100-50=250
+				//拼接dom结构
+				let htmlCss = '';
+				arr.forEach(function(card,index){
+					//生成随机数
+					let randomTop = tmp.randomBetween(paddingOffset,maxHeight);//50 250
+          let randomLeft = tmp.randomBetween(paddingOffset,maxWidth);//50 650        
+					let key = `<div class="card-item"
+											style="z-index:${index + 1};
+											background:${background[index%background.length]};
+											top:${randomTop}px;
+											left:${randomLeft}px">
+											${card.name}
+											</div>`;
+											htmlCss += key
+				})			
+				 $('.card-list-contaienr').append(htmlCss);      
+         tmp.data.zindex = arr.length;
+			},
+			bind:function(){
+				$('.card-list-contaienr').on('mousedown','.card-item',this.mousedownEvent);// //鼠标按下
+				$('.card-list-contaienr').on('mousemove',this.mousemoveEvent);// 鼠标移动
+				$('.card-list-contaienr').on('mouseup','.card-item',this.lockMouseEvent);// 鼠标触发
+				$('.card-list-contaienr').on('mouseleave',this.lockMouseEvent);//鼠标离开
+			},
+			mousedownEvent:function(event){ //鼠标按下
+				tmp.data.isLock = false;//开锁				
+        itemDiffOffsetX = event.clientX - this.offsetLeft;//获得离左边的距离
+        //itemDiffOffsetX(偏移差 X) = event.clientX() - this.offsetLeft;
+        itemDiffOffsetY = event.clientY - this.offsetTop;//获得离顶部的距离
+        tmp.data.itemDiffOffsetX = itemDiffOffsetX; 
+        tmp.data.itemDiffOffsetY = itemDiffOffsetY;
+        let zindex = tmp.data.zindex + 1;
+        $(this).css({'z-index':zindex})
+        tmp.data.zindex = zindex;
+        tmp.data.item = $(this);
+			},
+			mousemoveEvent:function(event){ // 鼠标移动
+				if(tmp.data.isLock){
+					return
+				}// 如果有锁，返回
+				// 如果没锁，获取 ClienX_2 - 存储偏移量的差 计算出偏移量
+				let left = event.clientX - tmp.data.itemDiffOffsetX;
+				let top = event.clientY - tmp.data.itemDiffOffsetY;
+				// 从存储中获取到当前的项，然后设置偏移量
+				tmp.data.item.css({
+					top:top,
+					left:left
+				}) 
+			},			
+			lockMouseEvent:function(){ //鼠标触发
+				tmp.data.isLock = true;
+			},
+			randomBetween:function(min,max){ //生成两个数之间的随机数
+				return Math.floor(Math.random() * (max - min) + min);
+			},			
+		}
+		tmp.init();
+})
+</script>
+
+</body>
+</html>

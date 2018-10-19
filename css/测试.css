@@ -1,0 +1,101 @@
+/**{
+	margin:0 auto;
+	padding:0;
+	box-sizing:border-box;
+}
+a{
+	text-decoration: none;		
+}
+
+.guestbook-section{
+margin-top: 200px;
+	
+	position: relative;
+	width: 1000px;
+	height: 552px;
+	background-color: #fff;
+	border: 6px #e2e2e2 solid;
+	border-top:none;
+	font-size: 0;
+}
+.guestbook-section:before{
+	content: '';
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	width: 294px;
+	height: 168px;
+	background-repeat: no-repeat;
+	background-image: url(../img/guestbook-img.jpg);
+}
+.guestbook-item{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 320px;
+	height: 160px;
+	border:1px #ead6c6 solid;
+	background-color: #fff0f0;
+	background-image: url(../img/stripe-01.png);
+}
+.guestbook-item:after{
+	content: '';
+	position: absolute;
+	top:-18px;
+	left: -13px;
+	display: inline-block;
+	width: 44px;
+	height: 39px;
+	background-image: url(../img/lefguestbook-left.png);
+	background-repeat: no-repeat;
+}
+.guestbook-item:before{
+	content: '';
+	position: absolute;
+	top:-14px;
+	right: -21px;
+	display: inline-block;
+	width: 42px;
+	height: 43px;
+	background-image: url(../img/righguestbook-right.png);
+	background-repeat: no-repeat;
+}
+.guestbook-item h5{
+	font-size: 16px;
+	color: #000000;
+	margin-top: 20px;
+	margin-left: 18px;
+}
+.guestbook-item p{
+	font-size: 14px;
+	color: #000;
+	line-height: 26px;
+	width: 281px;
+	margin-left: 18px;
+}*/
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+.card-list-contaienr{
+  position: relative;
+  width: 800px;
+  height: 400px;
+  background: #3b6064;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.card-item{
+  box-sizing: border-box;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100px;
+  height: 100px;
+  background-color:#a8dbe2;
+  padding: 10px;
+  color: #fff;
+  font-size: 15px
+}
