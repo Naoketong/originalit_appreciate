@@ -92,7 +92,7 @@ position: absolute;
 	font-size: 14px;
 	color: #000;
 	text-align: center;
-	margin-top: 25px;
+	padding-top: 25px;
 }
 
 .fixation-head a:nth-child(1){
@@ -541,10 +541,9 @@ margin-bottom: 7px;
 	border-left: 1px solid #dbdbdb;
 }
 
-/*js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分*/
+/*卡片祝福*/
+
 .guestbook-section{
-/*margin-top: 200px;
-*/	
 	position: relative;
 	width: 1000px;
 	height: 552px;
@@ -565,53 +564,58 @@ margin-bottom: 7px;
 }
 .guestbook-item{
 	position: absolute;
-	top: 35px;
+	top: 10px;
 	left: 10px;
 	width: 320px;
 	height: 160px;
 	border:1px #ead6c6 solid;
 	background-color: #fff0f0;
 	background-image: url(../img/stripe-01.png);
+	z-index: 999;
+	cursor: pointer;
 }
+
 .guestbook-item:after{
 	content: '';
 	position: absolute;
 	top:-18px;
-	left: -13px;
+	left: -11px;
 	display: inline-block;
-	width: 44px;
-	height: 39px;
-	background-image: url(../img/lefguestbook-left.png);
+	width: 350px;
+	height: 46px;
+	background-image: url(../img/rubberized.png);
 	background-repeat: no-repeat;
+	z-index: 71;
 }
 .guestbook-item:before{
 	content: '';
 	position: absolute;
-	top:-14px;
-	right: -21px;
+	top:0px;
+	right: 0px;
 	display: inline-block;
-	width: 42px;
-	height: 43px;
-	background-image: url(../img/righguestbook-right.png);
+	width: 320px;
+	height: 160px;
+	background-image: url(../img/stripe-01.png);
 	background-repeat: no-repeat;
 }
-.guestbook-item h5{
+.guestbook-item .guestbook-item-title{
 	font-size: 16px;
 	color: #000000;
 	margin-top: 20px;
 	margin-left: 18px;
+	z-index: 999;
 }
-.guestbook-item p{
+.guestbook-item .guestbook-item-text{
 	font-size: 14px;
 	color: #000;
 	line-height: 26px;
 	width: 281px;
 	margin-left: 18px;
+	z-index: 999;
 }
 
 
-
-/*js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分js部分*/
+/*卡片祝福*/
 
 .foot-section{
 	position: relative;

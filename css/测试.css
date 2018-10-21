@@ -1,4 +1,4 @@
-/**{
+*{
 	margin:0 auto;
 	padding:0;
 	box-sizing:border-box;
@@ -37,45 +37,51 @@ margin-top: 200px;
 	border:1px #ead6c6 solid;
 	background-color: #fff0f0;
 	background-image: url(../img/stripe-01.png);
+	z-index: 999;
+	cursor: pointer;
 }
+
 .guestbook-item:after{
 	content: '';
 	position: absolute;
 	top:-18px;
-	left: -13px;
+	left: -11px;
 	display: inline-block;
-	width: 44px;
-	height: 39px;
-	background-image: url(../img/lefguestbook-left.png);
+	width: 350px;
+	height: 46px;
+	background-image: url(../img/rubberized.png);
 	background-repeat: no-repeat;
+	z-index: 71;
 }
 .guestbook-item:before{
 	content: '';
 	position: absolute;
-	top:-14px;
-	right: -21px;
+	top:0px;
+	right: 0px;
 	display: inline-block;
-	width: 42px;
-	height: 43px;
-	background-image: url(../img/righguestbook-right.png);
+	width: 320px;
+	height: 160px;
+	background-image: url(../img/stripe-01.png);
 	background-repeat: no-repeat;
 }
-.guestbook-item h5{
+.guestbook-item .guestbook-item-title{
 	font-size: 16px;
 	color: #000000;
 	margin-top: 20px;
 	margin-left: 18px;
+	z-index: 999;
 }
-.guestbook-item p{
+.guestbook-item .guestbook-item-text{
 	font-size: 14px;
 	color: #000;
 	line-height: 26px;
 	width: 281px;
 	margin-left: 18px;
-}*/
+	z-index: 999;
+}
 
 
-*{
+/**{
   margin: 0;
   padding: 0;
 }
@@ -98,4 +104,53 @@ margin-top: 200px;
   padding: 10px;
   color: #fff;
   font-size: 15px
-}
+}*/
+$(document).ready(function(){
+  $("button").click(function(){
+    document.write($("p").css("color"));
+  });
+});
+ let background = ['#fdfbe9','#f0f5ff','#f1fff0','#fff0f0'];
+				 let containerWidth   = $('.guestbook-section').width();
+				 let containerHeight  = $('.guestbook-section').height();
+				 let itemWidth        = 100;
+				 let itemHeight       = 100;
+				 let paddingOffset    = 50;			
+         let maxWidth         = containerWidth - itemWidth - paddingOffset;//800-100-50=650
+         let maxHeight        = containerHeight - itemHeight - paddingOffset;//400-100-50=250
+				 //拼接dom结构
+				  let htmlCss = '';
+				 arr.forEach(function(card,index){
+				 	//生成随机数
+				 	let randomTop = tmp.randomBetween(paddingOffset,maxHeight);//50 250
+          			let randomLeft = tmp.randomBetween(paddingOffset,maxWidth);//50 650
+
+          let key  = $('.guestbook-item').eq().clone();      
+				 	let key = `<div class="guestbook-item"
+				 							style="z-index:${index + 1};
+				 							background:${background[index%background.length]};
+				 							top:${randomTop}px;
+				 							left:${randomLeft}px;
+				 							">
+				 							${card.name}
+				 							</div>`;
+				 							htmlCss += key
+				 })			
+				 $('.guestbook-section').append(htmlCss);
+
+				
+				 htmlCss += key;
+
+				 // htmlCss += key;
+			// 	let aa  = $('.guestbook-item').eq(0).clone();
+			// 	let bb  = $('.guestbook-item').eq(1).clone();
+			// 	let cc  = $('.guestbook-item').eq(2).clone();
+			// 	let dd  = $('.guestbook-item').eq(3).clone();
+			// 	let htmlCss = key;     
+			// 	$('.guestbook-section').append(aa);
+			// 	$('.guestbook-section').append(bb);
+			// 	$('.guestbook-section').append(cc);
+			// 	$('.guestbook-section').append(dd);
+
+   //      tmp.data.zindex = arr.length;
+			// },
