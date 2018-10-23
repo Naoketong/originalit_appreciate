@@ -76,15 +76,35 @@ position: absolute;
 	background-image: url(../img/juchi-1.png);
 }
 /*固定导航*/
-.activity-section .fixation-head{
+/*.activity-section .fixation-head{
 	width: 108px;
 	height: 356px;
 	position: absolute;
 	right: -114px;
-	top: 257px;
+	top: 66px;
+	background-image: url(../img/fixation-head.png);
+}*/
+
+.fixation-head{
+	position: absolute;
+	right: -6px;
+}
+.fixation-head-list{
+	position: absolute;
+	width: 108px;
+	height: 356px;
+	top: 0px;
 	background-image: url(../img/fixation-head.png);
 }
-.activity-section .fixation-head a{
+.roll{
+	position: fixed;
+	top: 0px;
+	width: 108px;
+	height: 356px;
+	background-image: url(../img/fixation-head.png);
+}
+
+.fixation-head-item{
 	display: inline-block;
 	position: absolute;
 	width: 80px;
@@ -94,20 +114,23 @@ position: absolute;
 	text-align: center;
 	padding-top: 25px;
 }
+.fixation-head-item:hover{
+	background-color:#f7f7f7; 
+}
 
-.fixation-head a:nth-child(1){
+.fixation-head-item:nth-child(1){
 	top: 32px;
 	right: 1px;
 }
-.fixation-head a:nth-child(2){
+.fixation-head-item:nth-child(2){
 	top: 108px;
 	right: 1px;	
 }
-.fixation-head a:nth-child(3){
+.fixation-head-item:nth-child(3){
 	top: 188px;
 	right: 1px;
 }
-.fixation-head a:nth-child(4){
+.fixation-head-item:nth-child(4){
 	top: 268px;
 	right: 1px;
 	color: #cf000d;
@@ -563,56 +586,69 @@ margin-bottom: 7px;
 	background-image: url(../img/guestbook-img.jpg);
 }
 .guestbook-item{
-	position: absolute;
-	top: 10px;
-	left: 10px;
-	width: 320px;
-	height: 160px;
-	border:1px #ead6c6 solid;
-	background-color: #fff0f0;
-	background-image: url(../img/stripe-01.png);
-	z-index: 999;
-	cursor: pointer;
+  position: absolute;
+  display: inline-block;
+  top: 10px;
+  left: 10px;
+  width: 320px;
+  height: 160px;
+  border:1px #ead6c6 solid;
+  background-color: #fff0f0;
+  background-image: url(../img/stripe-01.png);
+  cursor: pointer;
 }
-
+.guestbook-item-close{
+  display: none;
+  position: absolute;
+  top: -24px;
+  right: 0px;
+  width: 15px;
+  height: 23px;
+  background-image: url(../img/close.png);
+  background-repeat: no-repeat;
+  z-index: 72;
+}
+.guestbook-item:hover .guestbook-item-close{
+  display: inline-block;
+}
 .guestbook-item:after{
-	content: '';
-	position: absolute;
-	top:-18px;
-	left: -11px;
-	display: inline-block;
-	width: 350px;
-	height: 46px;
-	background-image: url(../img/rubberized.png);
-	background-repeat: no-repeat;
-	z-index: 71;
+  content: '';
+  position: absolute;
+  top:-18px;
+  left: -11px;
+  display: inline-block;
+  width: 350px;
+  height: 46px;
+  background-image: url(../img/rubberized.png);
+  background-repeat: no-repeat;
+  z-index: 71;
 }
 .guestbook-item:before{
-	content: '';
-	position: absolute;
-	top:0px;
-	right: 0px;
-	display: inline-block;
-	width: 320px;
-	height: 160px;
-	background-image: url(../img/stripe-01.png);
-	background-repeat: no-repeat;
+  content: '';
+  position: absolute;
+  top:0px;
+  right: 0px;
+  display: inline-block;
+  width: 320px;
+  height: 160px;
+  background-image: url(../img/stripe-01.png);
+  background-repeat: no-repeat;
 }
 .guestbook-item .guestbook-item-title{
-	font-size: 16px;
-	color: #000000;
-	margin-top: 20px;
-	margin-left: 18px;
-	z-index: 999;
+  font-size: 16px;
+  color: #000000;
+  margin-top: 20px;
+  margin-left: 18px;
+  z-index: 999;
 }
 .guestbook-item .guestbook-item-text{
-	font-size: 14px;
-	color: #000;
-	line-height: 26px;
-	width: 281px;
-	margin-left: 18px;
-	z-index: 999;
-}
+  font-size: 14px;
+  color: #000;
+  line-height: 26px;
+  width: 281px;
+  margin-left: 18px;
+  z-index: 999;
+} 
 
 
 /*卡片祝福*/
