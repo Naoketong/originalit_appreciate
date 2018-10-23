@@ -574,6 +574,7 @@ margin-bottom: 7px;
 	border: 6px #e2e2e2 solid;
 	border-top:none;
 	font-size: 0;
+	overflow: hidden;
 }
 .guestbook-section:before{
 	content: '';
